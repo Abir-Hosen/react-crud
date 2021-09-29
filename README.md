@@ -1,7 +1,7 @@
-sudo apt-get install npm
+`sudo apt-get install npm` - to install npm
 
-delete package-look.json
+`delete package-look.json` - delete package file
 
-npm i
+`npm i` - install npm packages
 
-npm start
+`npm start` - start react app
