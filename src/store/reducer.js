@@ -14,9 +14,9 @@ const bookReducer = (state = initialState, action) => {
             return {...state, currentIndex: action.data, currentData: state.list[action.data]}
         case UPDATE: 
             state.list[state.currentIndex]= action.data
-            return {...state}
+            return 
         case DELETE: 
-            return {...state}
+            return {...state, list:[...state.list.filter((obj, index) => index!=action.data)]};
         case LIST: 
             return {...state}
         default: return state

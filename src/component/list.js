@@ -13,14 +13,14 @@ function List() {
 
     }, [dispatch]);
 
-    const readData = (e) => {
-        console.log(e.target.id)
-        dispatch(read(e.target.id))
+    const readData = (id) => {
+        console.log(id)
+        dispatch(read(id))
     }
 
-    const deleteData = (e) => {
-        console.log(e.target.id)
-        dispatch(remove(e.target.id))
+    const deleteData = (id) => {
+        console.log(id)
+        dispatch(remove(id))
     }
 
     return (
@@ -35,11 +35,11 @@ function List() {
                 </div>
                 {
                     list.map((data, index) => 
-                        <div className='row data-table1' key={index} id={index} onClick={readData}>
-                            <div className='col-md-4 col-lg-4 text-left' id={index}>{index}-{data.name}</div>
-                            <div className='col-md-4 col-lg-4 text-left' id={index}>{data.author}</div>
-                            <div className='col-md-3 col-lg-3 text-left' id={index}>{data.type}</div>
-                            <div className='col-md-1 col-lg-1 text-left' id={index} onClick={deleteData}><span onClick={deleteData}  id={index} class="material-icons">delete</span></div>
+                        <div className='row data-table1' key={index} onClick={()=>readData(index)}>
+                            <div className='col-md-4 col-lg-4 text-left'>{index}-{data.name}</div>
+                            <div className='col-md-4 col-lg-4 text-left'>{data.author}</div>
+                            <div className='col-md-3 col-lg-3 text-left'>{data.type}</div>
+                            <div className='col-md-1 col-lg-1 text-left' onClick={()=>deleteData(index)}><span class="material-icons">delete</span></div>
                         </div>
                 )}
             </div>

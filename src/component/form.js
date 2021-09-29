@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function Form() {
     const dispatch = useDispatch();
-    const { list, currentData} = useSelector((state) => state);
+    const { list, currentData, currentIndex} = useSelector((state) => state);
     const [data, setData] = useState({})
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function Form() {
     }
 
     const updateBook = () => {
-        dispatch(update(data))
+        // dispatch(update(data))
     }
 
     const setBookData = (e) => {
@@ -31,9 +31,14 @@ function Form() {
         if(e.target.id==='uauthor') setData({...data, author: e.target.value})
         if(e.target.id==='utype') setData({...data, type: e.target.value})
     }
-    if(currentData && currentData.name!==null) document.getElementById("uname").value = currentData.name;
-    if(currentData && currentData.author!==null) document.getElementById("uauthor").value = currentData.author;
-    if(currentData && currentData.type!==null) document.getElementById("utype").value = currentData.type;
+    // if(currentIndex!=''){
+    //     document.getElementById("uname").defaultValue = currentData.name;
+    //     document.getElementById("uauthor").defaultValue = currentData.author;
+    //     document.getElementById("utype").defaultValue = currentData.type;
+    // }
+    if(currentData && currentData.name!==null) document.getElementById("uname").defaultValue = currentData.name;
+    if(currentData && currentData.author!==null) document.getElementById("uauthor").defaultValue = currentData.author;
+    if(currentData && currentData.type!==null) document.getElementById("utype").defaultValue = currentData.type;
 
     console.log(list)
 
